@@ -3,16 +3,9 @@
 //Function: Holds the main library application with all the method invocations
 // as well as the return method defined and initialized by data type.
 
-//import java.sql.*;
-//import java.time.LocalDate;
-//import java.io.*;
 import java.util.Scanner;
 
-//import static jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle.title;
-
 public class Main {
-    // private static final LibraryBooks libraryBooks = new LibraryBooks();
-
     public static void main(String[] args) {
         LibraryBooks libraryBooks = new LibraryBooks();
 
@@ -50,9 +43,15 @@ public class Main {
 
         System.out.println();
         System.out.print("Enter book Barcode to remove: ");  //Implementing the remove method to remove book from the database.
-        String barcodeToRemove = scanA.nextLine();               //Prompts user to enter the barcode of book to remove
+        String barcodeToRemove = scanA.nextLine();        //Prompts user to enter the barcode of book to remove.
 
-        LibraryBooks.removeBookBarcode(barcodeToRemove);    // implementation
+        LibraryBooks.removeBookBarcode(barcodeToRemove);     // implementation
+        if (barcodeToRemove != null) {
+            System.out.println("Book with barcode: " + "'" + barcodeToRemove + "'" + " removed successfully");
+        }
+        else {
+            System.out.println("Book with barcode: " + "'" + barcodeToRemove + "'" + " not found");
+        }
         System.out.println();
 
         LibraryBooks.displayAllBooks();      //Call to print method to display content of database to also exclude the removed book
@@ -62,6 +61,12 @@ public class Main {
         String titleToRemove = scanA.nextLine();
 
         LibraryBooks.removeBookTitle(titleToRemove);     // implementation
+        if (titleToRemove != null) {
+            System.out.println("Book with title: " + "'" + titleToRemove + "'" + " removed successfully");
+        }
+        else {
+            System.out.println("Book with title: " + "'" + titleToRemove + "'" + " not found");
+        }
         System.out.println();
 
         LibraryBooks.displayAllBooks();        //Call to print method to display content of database to also exclude the removed book

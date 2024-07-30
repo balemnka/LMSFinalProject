@@ -5,49 +5,37 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-class LibraryBooks {
-    public static ArrayList<Book> book1;
+public class LibraryBooks {
+    public static ArrayList<Book> book1 = new ArrayList<>();
 
     public LibraryBooks() {
         book1 = new ArrayList<>();
     }
 
-    public static void addNewBook(Book book) {
+    public static void addNewBook(Book book) {    //Defining the add method
+        if (book1 == null) {
+            book1 = new ArrayList<>();
+        }
         book1.add(book);
-    }   //Defining the add method
-
-    public static void removeBookBarcode(String barcode) {             //Defining the remove method (by barcode)
-        Book existingBook = null;
-        for (Book book : book1) {
-            if (book.getBarcode().equalsIgnoreCase(barcode)) {
-                existingBook = book;
+    }
+    public static void removeBookBarcode(String barcode) {
+        for (int i = 0; i < book1.size(); i++) {
+            Book book = book1.get(i);
+            if (book.getBarcode().equals(barcode)) {
+                book1.remove(i);
                 break;
             }
         }
-        if (existingBook != null) {
-            book1.remove(existingBook);
-            System.out.println("Book with Barcode: " + barcode + " successfully deleted");
-        } else {
-            System.out.println("Book with Barcode: " + barcode + " not found");
-        }
     }
-
-    public static void removeBookTitle(String title) {                    //Defining the add method (by title)
-        Book existingBook = null;
-        for (Book book : book1) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
-                existingBook = book;
+    public static void removeBookTitle(String title) {
+        for (int i = 0; i < book1.size(); i++) {
+            Book book = book1.get(i);
+            if (book.getTitle().equals(title)) {
+                book1.remove(i);
                 break;
             }
         }
-        if (existingBook != null) {
-            book1.remove(existingBook);
-            System.out.println("Book with title: " + title + " successfully deleted");
-        } else {
-            System.out.println("Book with title: " + "'" + title + "'" + " not found");
-        }
     }
-
     public static void checkOutBook(String title) {           //Defining the check out method
         boolean bookFound = false;
         for (Book book : book1) {
@@ -88,12 +76,11 @@ class LibraryBooks {
         }
     }
 
-    public static Book[] displayAllBooks() {        //Defining the print method to display the entire database
+    public static void displayAllBooks() {        //Defining the print method to display the entire database
         System.out.println("Printing Book Collection");
         for (Book book : book1) {
 
             System.out.println(book);
         }
-        return null;
     }
 }
