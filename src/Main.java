@@ -70,7 +70,8 @@ public class Main {
         System.out.print("Enter book title to check out: ");     //Prompts user to enter title of book to check out
         String titleToCheckOut = scanA.nextLine();
 
-        LibraryBooks.checkOutBook(titleToCheckOut);      //Implementation of check out method
+        LibraryBooks.checkOutBook(titleToCheckOut);     //Implementation of check out method
+
         System.out.println();
 
         LibraryBooks.displayAllBooks();   //Call to print method to display content of database. Also shows status of checked out book and due date

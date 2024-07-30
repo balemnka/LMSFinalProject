@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 class LibraryBooks {
-    private static ArrayList<Book> book1;
+    public static ArrayList<Book> book1;
 
     public LibraryBooks() {
         book1 = new ArrayList<>();
@@ -61,7 +61,11 @@ class LibraryBooks {
         }
         if (bookFound) {
             System.out.println("Book with title: " + "'" + title + "'" + " successfully checked out");
-        } else {
+        }
+        else if (!bookFound) {
+                System.out.println("You did not enter a valid book title");
+        }
+        else {
             System.out.println("Book with title: " + "'" + title + "'" + " already checked out");
         }
     }
@@ -84,11 +88,12 @@ class LibraryBooks {
         }
     }
 
-    public static void displayAllBooks() {        //Defining the print method to display the entire database
+    public static Book[] displayAllBooks() {        //Defining the print method to display the entire database
         System.out.println("Printing Book Collection");
         for (Book book : book1) {
 
             System.out.println(book);
         }
+        return null;
     }
 }

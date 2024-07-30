@@ -4,8 +4,9 @@
 // as well as the return method defined and initialized by data type.
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class Book {
+public class Book extends ArrayList<Book> {
                                        // Fields/Variables
     private final String id;
     private final String title;
@@ -25,11 +26,17 @@ public class Book {
         this.checkedOut = false;
         this.dueDate = null;
         this.status = "Available";
+    }
 
+    public String getId() {
+        return id;
     }
 
     public String getTitle() {                             //Getters and Setters
         return title;
+    }
+    public String getAuthor() {
+        return author;
     }
     public String getBarcode() {
         return barcode;
